@@ -11,12 +11,12 @@
 </p>
 
 <p>
-  <strong>Author</strong>
+  <strong>Author:</strong>
   <%= @post.user.name.blank? ? "Anonym" : @post.user.name %>
 </p>
 
 <p>
-  <strong>Datum</strong>
+  <strong>Datum:</strong>
   <%= @post.created_at.localtime.strftime("%d.%m.%Y, %H:%M") %>
 </p>
 
