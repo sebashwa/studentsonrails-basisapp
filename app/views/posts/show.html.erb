@@ -12,7 +12,12 @@
 
 <p>
   <strong>Author</strong>
-  <%= @post.user.email %>
+  <%= @post.user.name %>
+</p>
+
+<p>
+  <strong>Datum</strong>
+  <%= @post.created_at.localtime.strftime("%d.%m.%Y, %H:%M") %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
