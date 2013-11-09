@@ -12,7 +12,7 @@
 
 <p>
   <strong>Author</strong>
-  <%= @post.user.name %>
+  <%= @post.user.name.blank? ? "Anonym" : @post.user.name %>
 </p>
 
 <p>
