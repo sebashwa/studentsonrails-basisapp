@@ -1,8 +1,16 @@
 Basisapp::Application.routes.draw do
   devise_for :users
   resources :posts
-  resources :artists
+  resources :artists do 
+	resources :songs, except: :show
+  end 
 
+  #Routes for Songs, which should be accessed via their according artists.
+  #get 'artists/:artist_id/songs/:song_id' => 'song#show'#, as: :show_song
+  #get 'artists/:artist_id/songs/new' => 'song#new'#, as: :new_song
+  #get 'artists/:artist_id/songs/:song_id/edit' => 'song#edit'#, as: :edit_song
+  #post 'artists/:artist_id' => 'song#create'#, as: :create_song
+  #patch 'artists/:artist_id/songs/1' => 'song#update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

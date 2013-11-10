@@ -3,6 +3,26 @@
   <strong>Name:</strong>
   <%= @artist.name %>
 </p>
-
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Duration</th>
+			<th></th>
+			<th></th>
+			<th><%= link_to 'Add song', new_artist_song_path(@artist) %></th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @songs.each do |song| %>
+		<tr>
+			<td><%= song.title %></td>
+			<td><%= (song.duration/60).to_i	 %>:<%= song.duration%60 %></td>
+			<td><%= link_to 'Edit',  edit_artist_song_path(@artist, song) %></td>
+			<td><%= link_to 'Destroy',  artist_song_path(@artist, song), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
