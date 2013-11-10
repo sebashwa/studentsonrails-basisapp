@@ -7,6 +7,9 @@ Basisapp::Application.routes.draw do
   resources :posts do
     resources :comments, except: [:show,:edit,:update,:index]
   end  
+  
+  resources :listened_songs, except: [:destroy, :edit, :update, :show]
+  get 'listened_songs/:artist_id/new' => 'listened_songs#new', as: :new_listened_song_with_artist
 
   #Routes for Songs, which should be accessed via their according artists.
   #get 'artists/:artist_id/songs/:song_id' => 'song#show'#, as: :show_song

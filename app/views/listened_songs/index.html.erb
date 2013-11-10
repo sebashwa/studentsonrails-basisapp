@@ -1,0 +1,12 @@
+<h1>Played Songs</h1>
+
+    <% @listened_songs.each do |listened_song| %>
+      <div class="row">
+        <div class="large-6 small-2 columns"><%= listened_song.song.title %></div>
+        <div class="large-6 small-2 columns"><%= listened_song.song.artist.name %></div>
+            
+      </div>
+    <% end %>
+
+
+<%= link_to 'Listen to another Song', new_listened_song_path, class: "button radius" %>

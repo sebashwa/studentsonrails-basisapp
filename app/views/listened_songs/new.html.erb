@@ -1,0 +1,18 @@
+<h1>New artist</h1>
+
+<a class="button" href="#" data-dropdown="drop1">Select artist</a>
+<ul id="drop1" class="f-dropdown" data-dropdown-content>
+	<% @artists.each do |artist| %>
+	<li><%= link_to artist.name, new_listened_song_with_artist_path(artist) %></li>  
+  <% end %>
+</ul>
+<br/>
+<a class="button" href="#" data-dropdown="drop2">Select Song</a>
+<ul id="drop2" class="f-dropdown" data-dropdown-content>
+	<% @songs.each do |song| %>
+	<li><%= link_to song.title, listened_songs_path %></li>  
+  <% end %>
+</ul>
+
+<br/>
+<%= link_to 'Artist not yet in Database?', artists_path %>
