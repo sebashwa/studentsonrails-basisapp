@@ -1,29 +1,16 @@
 <h1>Neuigkeiten</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="large-3 columns"><%= link_to post.title %></div>
+          <div class="small-6 columns"><%= post.content %></div>
+            <ul class="button-group">
+              <li><%= link_to 'Show', post, class: "tiny button"  %></li>
+              <li><%= link_to 'Edit', edit_post_path(post), class: "tiny button"  %></li>
+              <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button" %></li>
+            </ul>
+          </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
 
 <%= link_to 'New Post', new_post_path, class: "button radius" %>

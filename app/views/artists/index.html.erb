@@ -3,12 +3,12 @@
     <% @artists.each do |artist| %>
       <div class="row">
         <div class="large-6 small-2 columns"><%= link_to artist.name, artist %></div>
-        <div class="small-6 large-2 columns"><%= link_to 'Edit', edit_artist_path(artist), class: "tiny button" %></div>
-        <div class="small-6 large-2 columns"><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button" %></div>
+            <ul class="button-group">
+              <li> <%= link_to 'Edit', edit_artist_path(artist), class: "tiny button" %></li>
+              <li> <%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button" %></li>
+            </ul>
       </div>
     <% end %>
 
-
-<br>
 
 <%= link_to 'New Artist', new_artist_path, class: "button radius" %>
