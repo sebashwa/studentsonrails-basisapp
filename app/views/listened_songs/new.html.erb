@@ -1,18 +1,34 @@
-<h1>New artist</h1>
+<h1>New listened song</h1>
 
-<a class="button" href="#" data-dropdown="drop1">Select artist</a>
-<ul id="drop1" class="f-dropdown" data-dropdown-content>
-	<% @artists.each do |artist| %>
-	<li><%= link_to artist.name, new_listened_song_with_artist_path(artist) %></li>  
-  <% end %>
-</ul>
-<br/>
-<a class="button" href="#" data-dropdown="drop2">Select Song</a>
-<ul id="drop2" class="f-dropdown" data-dropdown-content>
-	<% @songs.each do |song| %>
-	<li><%= link_to song.title, listened_songs_path %></li>  
-  <% end %>
-</ul>
+<%= form_for(@listened_song) do |f| %>
+  <% if @listened_song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@listened_song.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<br/>
+      <ul>
+      <% @listened_song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="row collapse">
+    <div class="small-9 columns">
+    <!--                       Variable        zielFeld, Collection, Value, Anzeigename-->
+      <%= f.collection_select(:song_id, Song.all, :id, :title) %>
+    </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-9 columns">
+    <%= f.submit class: "button radius"%>
+  </div>
+  </div>
+ 
+<% end %>
+
+
+
 <%= link_to 'Artist not yet in Database?', artists_path %>

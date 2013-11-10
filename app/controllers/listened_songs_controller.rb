@@ -20,12 +20,12 @@ class ListenedSongsController < ApplicationController
 	# POST /listened_songs
 	def create
 		@listened_song = ListenedSong.new()
-		@listened_song.song = Song.find(params[:song_id])
+		@listened_song.song = Song.find(params[:listened_song][:song_id])
     @listened_song.user = current_user
 
     respond_to do |format|
       if @listened_song.save
-        format.html { redirect_to listened_song_path, notice: 'Song was successfully added to played songs.' }        
+        format.html { redirect_to listened_songs_path, notice: 'Song was successfully added to played songs.' }        
       else
         format.html { render action: 'new' }        
       end
