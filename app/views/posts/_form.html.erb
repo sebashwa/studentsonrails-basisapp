@@ -11,15 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+<div class="row collapse">
+    <div class="small-9 columns">
+      <%= f.text_field :title, placeholder: "Nachrichtentitel" %>
+    </div>
+  <div class="row collapse">
+  <div class="small-9 columns">
+    <%= f.text_area :content, placeholder: "Nachrichtentext" %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row collapse">
+  <div class="small-9 columns">
+    <%= f.submit class: "button radius" %>
+  </div>
   </div>
 <% end %>

@@ -11,11 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+
+<div class="row collapse">
+    <div class="small-9 columns">
+      <%= f.text_field :name, placeholder: "Artistname"%>
+    </div>
+</div>
+ <div class="row collapse">
+  <div class="small-9 columns">
+    <%= f.submit class: "button radius"%>
   </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
+
