@@ -9,6 +9,7 @@ class ArtistsController < ApplicationController
   
   # GET /artists/1
   def show
+    @songs = @artist.songs
   end
 
   # GET /artists/new
@@ -16,7 +17,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.new
   end
 
-# GET /posts/1/edit
+# GET /artists/1/edit
   def edit
   end
 
