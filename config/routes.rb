@@ -1,9 +1,12 @@
 Basisapp::Application.routes.draw do
   devise_for :users
-  resources :posts
+
   resources :artists do 
 	resources :songs, except: :show
   end 
+  resources :posts do
+    resources :comments, except: [:show,:edit,:update,:index]
+  end  
 
   #Routes for Songs, which should be accessed via their according artists.
   #get 'artists/:artist_id/songs/:song_id' => 'song#show'#, as: :show_song
