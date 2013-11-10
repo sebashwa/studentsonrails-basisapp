@@ -10,6 +10,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   def show
     @songs = @artist.songs
+    @albums = @artist.albums
   end
 
   # GET /artists/new

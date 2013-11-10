@@ -1,8 +1,13 @@
 Basisapp::Application.routes.draw do
+  get "album/show"
+  get "album/edit"
+  get "album/destroy"
+  get "album/create"
   devise_for :users
 
   resources :artists do 
 	resources :songs, except: :show
+  resources :albums
   end 
   resources :posts do
     resources :comments, except: [:show,:edit,:update,:index]

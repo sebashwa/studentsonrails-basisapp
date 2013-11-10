@@ -24,5 +24,26 @@
 	<% end %>
 	</tbody>
 </table>
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Releaseyear</th>
+			<th></th>
+			<th></th>
+			<th><%= link_to 'Add album', new_artist_album_path(@artist) %></th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @albums.each do |album| %>
+		<tr>
+			<td><%= album.title %></td>
+			<td><%= album.year %></td>
+			<td><%= link_to 'Edit',  edit_artist_album_path(@artist, album) %></td>
+			<td><%= link_to 'Destroy',  artist_album_path(@artist, album), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
